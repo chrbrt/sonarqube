@@ -84,9 +84,10 @@ CI)
   else
     echo 'Feature branch or external pull request: no QA, no analysis. Skip sources'
 
-    mvn install \
+    mvn deploy \
+        -Pdeploy-sonarsource \
         $MAVEN_OPTIONS \
-        -Dsource.skip=true
+        -Dsource.skip=true -DskipTests
   fi
 
 
